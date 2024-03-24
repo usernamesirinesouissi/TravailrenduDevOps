@@ -1,0 +1,33 @@
+version: "3"
+services:
+  api:
+    image: node:20.11.0
+    container_name: api
+    working_dir: /app
+    command: npm run server
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./backend/:/app"
+
+  web:
+    image: node:20.11.0
+    container_name: web
+    working_dir: /src
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend/:/src"
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: sirine
+      MONGO_INITDB_ROOT_PASSWORD: sirine
+    volumes:
+      - db-data:/data/db
+
+volumes:
+  db-data: {}

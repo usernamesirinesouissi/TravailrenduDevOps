@@ -1,0 +1,10 @@
+{
+    
+    
+        "mongo_url": "mongodb://sirine:sirine@mongo:27017/letspost",
+      
+      
+    "jwtSecret": "jwtSecret",
+    "tokenExpire": "2592000"
+
+    }
